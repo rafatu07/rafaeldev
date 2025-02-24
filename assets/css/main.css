@@ -49,6 +49,17 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* opcional, previne overflow horizontal */
+}
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -524,12 +535,19 @@ section,
 }
 
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
+
+  .hero img {
+    display: none;
   }
 
-  .hero p {
+  .hero h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .hero p, .social-links {
     font-size: 20px;
+    text-align: center;
   }
 }
 
@@ -1453,4 +1471,28 @@ section,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.btn-enviar {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-enviar:hover {
+  background-color: #045a99; 
+  transform: translateY(-2px);
+}
+
+.btn-enviar:active {
+  transform: translateY(0);
 }
