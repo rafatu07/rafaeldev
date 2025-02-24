@@ -7,67 +7,97 @@
    */
   const headerToggleBtn = document.querySelector('.header-toggle');
 
-  function headerToggle() {
-    document.querySelector('#header').classList.toggle('header-show');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
-  }
-  headerToggleBtn.addEventListener('click', headerToggle);
+  // Função para alternar (mostrar/ocultar) o header no modo mobile
+function headerToggle() {
+  // Alterna a classe 'header-show' no elemento com id 'header'
+  document.querySelector('#header').classList.toggle('header-show');
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.header-show')) {
-        headerToggle();
-      }
-    });
+  // Alterna os ícones do botão (por exemplo, de menu para fechar)
+  headerToggleBtn.classList.toggle('bi-list');
+  headerToggleBtn.classList.toggle('bi-x');
+}
 
+// Adiciona o listener para o botão que alterna o header
+headerToggleBtn.addEventListener('click', headerToggle);
+
+/**
+ * Oculta a navegação mobile quando o usuário clica em um link da mesma página
+ */
+document.querySelectorAll('#navmenu a').forEach(navLink => {
+  navLink.addEventListener('click', () => {
+    // Se o header estiver visível, alterna para ocultá-lo
+    if (document.querySelector('.header-show')) {
+      headerToggle();
+    }
   });
+});
 
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
+/**
+ * Alterna dropdowns no menu mobile
+ */
+document.querySelectorAll('.navmenu .toggle-dropdown').forEach(toggleBtn => {
+  toggleBtn.addEventListener('click', function(e) {
+    e.preventDefault(); // Impede o comportamento padrão do link
+    // Alterna a classe 'active' no pai do botão para indicar que o dropdown está aberto
+    this.parentNode.classList.toggle('active');
+    // Alterna a classe 'dropdown-active' no próximo elemento (conteúdo do dropdown)
+    this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+    e.stopImmediatePropagation(); // Impede que o evento se propague para outros elementos
   });
+});
 
-  /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+/**
+ * Preloader: remove o elemento com id 'preloader' quando a página termina de carregar
+ */
+const preloader = document.querySelector('#preloader');
+if (preloader) {
+  window.addEventListener('load', () => {
+    preloader.remove();
+  });
+}
+
+/**
+ * Botão de scroll para o topo da página
+ */
+let scrollTop = document.querySelector('.scroll-top');
+
+function toggleScrollTop() {
+  if (scrollTop) {
+    // Se a rolagem vertical for maior que 100px, mostra o botão; caso contrário, esconde
+    window.scrollY > 100
+      ? scrollTop.classList.add('active')
+      : scrollTop.classList.remove('active');
   }
+}
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
+// Adiciona o comportamento de rolagem suave quando o botão é clicado
+scrollTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+// Verifica o estado do botão de scroll quando a página carrega e durante a rolagem
+window.addEventListener('load', toggleScrollTop);
+document.addEventListener('scroll', toggleScrollTop);
+
+/**
+ * Botão fixo do WhatsApp com comportamento similar ao botão de scroll
+ */
+window.addEventListener('scroll', function() {
+  const whatsappButton = document.querySelector('.whatsapp-float');
+  if (whatsappButton) {
+    // Mostra o botão do WhatsApp se a rolagem for maior que 200px; caso contrário, esconde-o
+    if (window.scrollY > 200) {
+      whatsappButton.classList.add('active');
+    } else {
+      whatsappButton.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
+});
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
 
   /**
    * Animation on scroll function and init
@@ -220,3 +250,5 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+

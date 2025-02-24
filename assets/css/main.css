@@ -1394,3 +1394,44 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/*--------------------------------------------------------------
+# whatsapp
+--------------------------------------------------------------*/
+
+.whatsapp-float {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 20px;
+  bottom: -15px; /* Estado inicial oculto */
+  z-index: 1000;
+  background-color: #25d366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+}
+
+.whatsapp-float i {
+  color: #fff;
+}
+
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  text-decoration: none;
+  color: #fff;
+}
+
+.whatsapp-float.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 65px; /* Posição ativa conforme desejado */
+}
