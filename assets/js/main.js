@@ -252,3 +252,29 @@ window.addEventListener('scroll', function() {
 })();
 
 
+/*
+    Formulario
+   */
+
+   (function(){
+     emailjs.init("SvoMUDp9SDES23odE"); 
+   })();
+ 
+   document.getElementById("contact-form").addEventListener("submit", function(event){
+     event.preventDefault();
+     
+     document.getElementById("loading").style.display = "block";
+  
+      emailjs.sendForm("service_2rlrbqm", "template_37b434s", this)
+        .then(function() {
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("success-message").style.display = "block";
+        }, function(error) {
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("error-message").style.display = "block";
+          console.log("Erro:", error);
+        });
+    });
+      document.getElementById('btn-limpar').addEventListener('click', function () {
+      document.getElementById('contact-form').reset();  
+    });

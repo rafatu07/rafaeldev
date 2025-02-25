@@ -75,7 +75,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Sobre Mim</h2>
-        <p>Sou um desenvolvedor full stack apaixonado por tecnologia e inovação. Com experiência em React, Next.js, Node.js e MySQL, 
+        <p>Sou um desenvolvedor full stack apaixonado por tecnologia e inovação. Com experiência em React, Next.js, Firebase e MySQL, 
           estou comprometido em ajudar empresas e empreendedores a criarem soluções digitais eficientes, desde sites e sistemas web até aplicativos mobile.</p>
       </div><!-- End Section Title -->
 
@@ -88,7 +88,7 @@
           <div class="col-lg-8 content">
             <h2 class="text-center">Desenvolvedor Web &amp; Mobile.</h2>
             <p class="fst-italic py-3 text-center">
-              Trabalho com React, Next.js e Firebase, criando interfaces modernas e responsivas.
+              Trabalho com tecnologias modernas do mercado, criando interfaces modernas e responsivas.
             </p>
             <div class="row">
               <div class="col-lg-9">
@@ -708,6 +708,7 @@
                   <div id="error-message" style="display:none; color:red;">Ocorreu um erro, tente novamente.</div>
       
                   <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                  <button type="button" id="btn-limpar" class="btn-limpar">Limpar</button>
                 </div>
               </div>
             </form>
@@ -716,30 +717,7 @@
       </div>
       
       <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-      <script>
-        (function(){
-          emailjs.init("SvoMUDp9SDES23odE"); 
-        })();
-      
-        document.getElementById("contact-form").addEventListener("submit", function(event){
-          event.preventDefault();
-          
-          document.getElementById("loading").style.display = "block";
-      
-          emailjs.sendForm("service_2rlrbqm", "template_37b434s", this)
-            .then(function() {
-              document.getElementById("loading").style.display = "none";
-              document.getElementById("success-message").style.display = "block";
-            }, function(error) {
-              document.getElementById("loading").style.display = "none";
-              document.getElementById("error-message").style.display = "block";
-              console.log("Erro:", error);
-            });
-        });
-      </script><!-- /Contact Section -->
-
-      
-
+     
 
   </main>
 
