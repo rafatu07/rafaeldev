@@ -278,3 +278,21 @@ window.addEventListener('scroll', function() {
       document.getElementById('btn-limpar').addEventListener('click', function () {
       document.getElementById('contact-form').reset();  
     });
+
+
+/*
+    BTN WHATSAPP
+   */
+
+    document.getElementById('whatsapp-float').addEventListener('click', function (event) {
+      event.preventDefault(); // Evita que o link abra imediatamente
+  
+      let whatsappText = document.getElementById('whatsapp-text');
+      whatsappText.style.display = 'block';
+  
+      // Após 1 segundo, redireciona para o WhatsApp
+      setTimeout(() => {
+        window.open("https://wa.me/5512991364890?text=Oi,%20vim%20pelo%20site%20de%20sistemas!", "_blank");
+        whatsappText.style.display = 'none';
+      }, 1000);
+    });
