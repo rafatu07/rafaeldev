@@ -274,10 +274,10 @@ window.addEventListener('scroll', function() {
           document.getElementById("error-message").style.display = "block";
           console.log("Erro:", error);
         });
-    });
-      document.getElementById('btn-limpar').addEventListener('click', function () {
-      document.getElementById('contact-form').reset();  
-    });
+    // });
+    //   document.getElementById('btn-limpar').addEventListener('click', function () {
+    //   document.getElementById('contact-form').reset();  
+     });
 
 
 /*
