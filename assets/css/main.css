@@ -587,7 +587,56 @@ section,
   line-height: 0;
 }
 
+/* Responsividade */
+@media (max-width: 767px) {
+  .about .content .row {
+    display: block; /* Torna a estrutura de colunas uma única coluna em telas pequenas */
+  }
 
+  .about .content .col-lg-8,
+  .about .content .col-lg-4 {
+    width: 100%;  /* As colunas ocupam 100% da largura em telas pequenas */
+    margin-bottom: 20px; /* Adiciona espaço entre as colunas empilhadas */
+  }
+
+  .about .content h2 {
+    font-size: 20px;  /* Ajuste no tamanho da fonte do título */
+  }
+
+  .about .content p {
+    font-size: 14px;  /* Ajuste no tamanho da fonte do parágrafo */
+  }
+
+  .about .content ul li {
+    font-size: 14px;  /* Reduz o tamanho da fonte das listas */
+  }
+}
+
+@media (min-width: 768px) {
+  .about .content .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .about .content .col-lg-8, 
+  .about .content .col-lg-4 {
+    flex: 1 1 48%;  /* Ajuste para manter as colunas em 48% da largura */
+    max-width: 48%;
+  }
+
+  .about .content h2 {
+    font-size: 28px;  /* Ajuste no tamanho da fonte do título para telas maiores */
+  }
+
+  .about .content p {
+    font-size: 16px;  /* Ajuste no tamanho da fonte do parágrafo */
+  }
+
+  .about .content ul li {
+    font-size: 16px;  /* Aumenta o tamanho da fonte das listas em telas maiores */
+  }
+}
 
 /*--------------------------------------------------------------
 # Stats Section
