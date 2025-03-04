@@ -292,7 +292,7 @@ window.addEventListener('scroll', function() {
   
       // Após 1 segundo, redireciona para o WhatsApp
       setTimeout(() => {
-        window.open("https://wa.me/5512991364890?text=Oi,%20vim%20pelo%20site%20de%20sistemas!", "_blank");
+        window.open("https://chatbotwhats-nine.vercel.app/", "_blank");
         whatsappText.style.display = 'none';
       }, 1000);
     });
