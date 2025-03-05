@@ -617,12 +617,15 @@ section,
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
   }
 
   .about .content .col-lg-8, 
   .about .content .col-lg-4 {
-    flex: 1 1 48%;  /* Ajuste para manter as colunas em 48% da largura */
+    flex: 1 1 47%;  /* Ajuste para manter as colunas em 48% da largura */
     max-width: 48%;
+    align-items: center;
+    justify-content: center;
   }
 
   .about .content h2 {
